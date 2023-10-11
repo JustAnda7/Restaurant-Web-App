@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  phone: MyString
+  resdate: 2023-10-11
+  restime: 2023-10-11 11:20:42
+  people: 1
+
+two:
+  name: MyString
+  phone: MyString
+  resdate: 2023-10-11
+  restime: 2023-10-11 11:20:42
+  people: 1
