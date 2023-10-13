@@ -1,0 +1,23 @@
+<div id="products">
+
+  <div class="row">
+    <% @cats.each do |cat| %>
+      <% if cat.products.where(featured: true).first.image.attached? %>
+        <%= image_tag(cat.products.where(featured: true).first.image, class:'img-fluid') %>
+      <% end %>
+      <div class="col-12">
+        <h2 style="text-align: center"><% cat.heading %></h2>
+      </div>
+      <div>
+        <% @products.each do |product| %>
+          <% if product.category == cat %>
+            <% if product.available %>
+              <h4><%= product.name %></h4>
+              <p><%= product.description %></p>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

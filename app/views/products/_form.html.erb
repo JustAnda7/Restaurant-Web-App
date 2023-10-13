@@ -41,6 +41,16 @@
     <%= form.check_box :featured %>
   </div>
 
+  <div class="field">
+    <%= form.label :category, style: "display: block" %>
+    <%= form.select :category_id, options_from_collection_for_select(Category.all, :id, :heading) %>
+  </div>
+
+  <div>
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+  </div>
+
   <div>
     <%= form.submit %>
   </div>

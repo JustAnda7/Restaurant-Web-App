@@ -3,12 +3,56 @@
 <h1>Menu</h1>
 
 <div id="products">
-  <% @products.each do |product| %>
-    <% if product.available %>
-      <h4><%= product.name %></h4>
-      <p><%= product.description %></p>
-    <% end %>
+  <%= form_tag(search_path, method: 'get', remote: true) do %>
+    <div class="input-group mb-5">
+      <div class="col-8" style="padding:0">
+        <%= text_field_tag :search, '', class:'form-control', placeholder: 'Search', onkeydown:'clickSubmit();' %>
+      </div>
+      <div class="col-4" style="padding:0">
+        <%= select_tag "filter", options_for_select(['Search Filter', 'Veg', 'Non-Veg']), class:'custom-select', onchange:'clickSubmit();' %>
+
+        <%= submit_tag "Search", class:'btn btn-dark', id:'search_submit', style:'display:none' %>
+      </div>
+    </div>
   <% end %>
+  <div id="menu-products-container">
+
+    <!-- <div id="products"> -->
+
+    <div class="row">
+      <% @cats.each do |cat| %>
+        <!-- % if cat.products.where(featured: true).first.image.attached? %>
+          %= image_tag(cat.products.where(featured: true).first.image, class:'img-fluid') %>
+        % end %> -->
+        <div class="col-12">
+          <h2 style="text-align: center"><%= cat.heading %></h2>
+        </div>
+        <div>
+          <% @products.each do |product| %>
+            <% if product.category == cat %>
+              <% if product.available %>
+                <h4><%= product.name %></h4>
+                <p><%= product.description %></p>
+
+                <span><%= product.price %></span>
+                <%= form_with model: @order_item do |f| %>
+                  <%= f.hidden_field :product_id, value: product.id %>
+                  <%= f.number_field :quantity, value: 1, min: 1 %>
+                  <%= f.submit "Add to Cart" %>
+                <% end %>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  </div>
 </div>
 
 
+<script>
+  function clickSubmit(){
+    $("#search_submit").trigger("click");
+  }
+</script>

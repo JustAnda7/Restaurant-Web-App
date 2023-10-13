@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :order_item
+  get 'cart', to: 'cart#show'
+  get 'search', to: 'menu#search'
+  resources :categories
   get 'menu', to: 'menu#index'
   resources :products
   devise_for :users

@@ -5,6 +5,7 @@ class CreateProducts < ActiveRecord::Migration[7.1]
       t.text :description,   default: ''
       t.decimal :price,      null: false, default: 0.0
       t.boolean :veg,        default: false
+      t.boolean :nonveg,     default: false
       t.boolean :available,  default: true
       t.boolean :featured,   default: false
 

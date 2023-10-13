@@ -8,11 +8,19 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+Category.create!(heading: 'Blah', body: "Test", display:true)
+
 5.times do |i|
-	Product.create!(
-		name: "Product",
-		description: "Description",
-		price: 130.99,
-		featured: true
-	)
+	pro = Product.new(
+				name: "Product",
+				description: "Description",
+				price: 130.99,
+				featured: true,
+				category: Category.find(1)
+			)
+	# pro.image.attach(io: open('~/Downloads/photo.jpg'), filename: "#{i}_image.jpg")
+	if i == 3
+		pro.featured = true
+	end
+	pro.save
 end
