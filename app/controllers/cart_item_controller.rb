@@ -1,4 +1,4 @@
-class OrderItemController < ApplicationController
+class CartItemController < ApplicationController
   before_action :set_order
   def create
     @order_item = @order.order_items.new(order_params)

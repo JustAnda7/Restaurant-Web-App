@@ -2,7 +2,7 @@ class MenuController < ApplicationController
   before_action :set_cats
   def index
     @products = Product.all
-    @order_items = current_order.order_items.new
+    # @order_items = current_order.order_items.new
   end
 
   def search

@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  resources :order_item
-  post 'menu', to: 'order_item#create'
+  resources :orderable
+  # post 'menu', to: 'cart#add'
   get 'cart', to: 'cart#show'
+  post 'cart/add', to: 'cart#add'
+  post 'cart/remove', to: 'cart#remove'
   get 'search', to: 'menu#search'
   resources :categories
   get 'menu', to: 'menu#index'
