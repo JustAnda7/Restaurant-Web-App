@@ -35,10 +35,12 @@
                 <p><%= product.description %></p>
 
                 <span><%= product.price %></span>
-                <%= form_with(url: cart_add_path) do |f| %>
-                  <%= f.hidden_field :id, value: product.id %>
-                  <%= f.number_field :quantity, value: 0, min: 1 %>
-                  <%= f.submit "Add to Cart" %>
+                <% if user_signed_in? %>
+                  <%= form_with(url: cart_add_path) do |f| %>
+                    <%= f.hidden_field :id, value: product.id %>
+                    <%= f.number_field :quantity, value: 0, min: 1 %>
+                    <%= f.submit "Add to Cart" %>
+                  <% end %>
                 <% end %>
               <% end %>
             <% end %>

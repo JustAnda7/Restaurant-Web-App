@@ -18,23 +18,22 @@ class CartController < ApplicationController
     end
 
     respond_to do |format|
-      format.turbo_stream do
-        render turbo_stream: [turbo_stream.replace('cart',
-                                                    partial: 'cart/cart',
-                                                    locals: { cart: @cart }),
-                              turbo_stream.replace(@product)]
-      end
+      # format.turbo_stream do
+      #   render turbo_stream: turbo_stream.update('cart', partial: 'cart/cart', locals: { cart: @cart })
+      # end
+      format.html { redirect_to cart_url, notice: "Added Successfully" }
     end
   end
 
   def remove
-    CartItem.find_by(id: params[:id]).destroy
+    Orderable.find_by(id: params[:id]).destroy
     respond_to do |format|
-      format.turbo_stream do
-        render turbo_stream: [turbo_stream.replace('cart',
-                                                    partial: 'cart/cart',
-                                                    locals: { cart: @cart })]
-      end
+      # format.turbo_stream do
+      #   render turbo_stream: [turbo_stream.replace('cart',
+      #                                               partial: 'cart/cart',
+      #                                               locals: { cart: @cart })]
+      # end
+      format.html { redirect_to cart_url, notice: "Removed Successfully" }
     end
   end
 

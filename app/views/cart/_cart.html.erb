@@ -1,8 +1,8 @@
-<!-- <%= link_to "#{current_order.order_items.size} items with a value of Rs.#{current_order.subtotal}", cart_path %> -->
 
-<%= turno_frame_tag "cart" do %>
+
+<%= turbo_frame_tag "cart" do %>
     <h1>CART</h1>
-    <% if cart.orderables.count > 0 %>
+    <% if @cart.orderables.count > 0 %>
         <%= render "cart/orderables" %>
         <p>Total:<%= @cart.total %></p>
     <% else %>
