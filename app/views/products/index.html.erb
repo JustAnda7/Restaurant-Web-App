@@ -2,13 +2,16 @@
 
 <h1>Products</h1>
 
-<div id="products">
+<div id="products" class="row row-cols-auto justify-contents-evenly">
   <% @products.each do |product| %>
-    <%= render product %>
-    <p>
-      <%= link_to "Show this product", product %>
-    </p>
+    <div class="col-auto justify-contents-evenly">
+      </br>
+      <%= render product %>
+      <p>
+        <%= link_to "Show", product,  class:"btn btn-primary btn-sm" %>
+      </p>
+    </div>
   <% end %>
 </div>
 
-<%= link_to "New product", new_product_path %>
+<%= link_to "New", new_product_path, class:"btn btn-primary btn-sm" %>

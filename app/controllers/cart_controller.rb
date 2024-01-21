@@ -33,7 +33,7 @@ class CartController < ApplicationController
       #                                               partial: 'cart/cart',
       #                                               locals: { cart: @cart })]
       # end
-      format.html { redirect_to cart_url, notice: "Removed Successfully" }
+      format.html { redirect_to cart_url }
     end
   end
 

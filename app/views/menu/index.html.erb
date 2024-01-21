@@ -19,31 +19,44 @@
 
     <!-- <div id="products"> -->
 
-    <div class="row">
+    <div>
       <% @cats.each do |cat| %>
-        <!-- % if cat.products.where(featured: true).first.image.attached? %>
-          %= image_tag(cat.products.where(featured: true).first.image, class:'img-fluid') %>
-        % end %> -->
+        <% if cat.products.where(featured: true).first.image.attached? %>
+          <%= image_tag(cat.products.where(featured: true).first.image, class:'img-fluid') %>
+        <% end %>
         <div class="col-12">
           <h2 style="text-align: center"><%= cat.heading %></h2>
         </div>
-        <div>
+        <div class="row gx-4 gy-4 row-cols-auto">
           <% @products.each do |product| %>
+          <div class="col-auto card">
             <% if product.category == cat %>
               <% if product.available %>
-                <h4><%= product.name %></h4>
+                <div class="card-header">
+                  <% if product.image.attached? %>
+				            <%= image_tag(product.image, class:'img-fluid') %>
+			            <% end %>
+                </div>
+                <div class="card-body">
+                <h3><%= product.name %></h3>
                 <p><%= product.description %></p>
 
-                <span><%= product.price %></span>
+                <div class="card-footer row justify-content-around">
+                <div class="col"><%= product.price %></div>
                 <% if user_signed_in? %>
+                <div class="col">
                   <%= form_with(url: cart_add_path) do |f| %>
-                    <%= f.hidden_field :id, value: product.id %>
-                    <%= f.number_field :quantity, value: 0, min: 1 %>
-                    <%= f.submit "Add to Cart" %>
+                    <%= f.hidden_field :id, value: product.id, class:"col-sm-1" %>
+                    <%= f.number_field :quantity, value: 0, min: 1, class:"col-sm-4" %>
+                    <%= f.submit "Add", class:"btn btn-primary btn-sm" %>
                   <% end %>
+                </div>
                 <% end %>
+                </div>
+                </div>
               <% end %>
             <% end %>
+          </div>
           <% end %>
         </div>
       <% end %>

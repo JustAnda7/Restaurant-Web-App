@@ -13,29 +13,29 @@
 
   <div>
     <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class:"form-control" %>
   </div>
 
   <div>
     <%= form.label :phone, style: "display: block" %>
-    <%= form.text_field :phone %>
+    <%= form.text_field :phone, class:"form-control" %>
   </div>
 
   <div>
     <%= form.label :resdate, style: "display: block" %>
-    <%= form.date_field :resdate %>
+    <%= form.date_field :resdate, class:"form-control" %>
   </div>
 
   <div>
     <%= form.label :restime, style: "display: block" %>
-    <%= form.time_field :restime %>
+    <%= form.time_field :restime, class:"form-control" %>
   </div>
 
   <div>
     <%= form.label :people, style: "display: block" %>
-    <%= form.number_field :people %>
+    <%= form.number_field :people, class:"form-control" %>
   </div>
-
+  <br>
   <div>
     <%= form.submit %>
   </div>

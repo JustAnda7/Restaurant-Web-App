@@ -13,17 +13,17 @@
 
   <div>
     <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class:"form-control" %>
   </div>
 
   <div>
     <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
+    <%= form.text_area :description, class:"form-control" %>
   </div>
 
   <div>
     <%= form.label :price, style: "display: block" %>
-    <%= form.text_field :price %>
+    <%= form.text_field :price, class:"form-control" %>
   </div>
 
   <div>
@@ -43,14 +43,14 @@
 
   <div class="field">
     <%= form.label :category, style: "display: block" %>
-    <%= form.select :category_id, options_from_collection_for_select(Category.all, :id, :heading) %>
+    <%= form.select :category_id, options_from_collection_for_select(Category.all, :id, :heading), class:"form-select" %>
   </div>
 
   <div>
     <%= form.label :image %>
-    <%= form.file_field :image %>
+    <%= form.file_field :image, class:"form-control" %>
   </div>
-
+  <br>
   <div>
     <%= form.submit %>
   </div>

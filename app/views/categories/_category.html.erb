@@ -1,17 +1,16 @@
-<div id="<%= dom_id category %>">
-  <p>
-    <strong>Heading:</strong>
-    <%= category.heading %>
-  </p>
+<div id="<%= dom_id category %>" class="card">
 
-  <p>
+  <div class="card-body">
+    <p>
+      <strong><%= category.heading %></strong>
+    </p>
+    <p>
     <strong>Body:</strong>
     <%= category.body %>
-  </p>
-
-  <p>
+    </p>
+    <p>
     <strong>Display:</strong>
     <%= category.display %>
-  </p>
-
+    </p>
+  </div>
 </div>

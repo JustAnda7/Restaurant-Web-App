@@ -1,10 +1,11 @@
 
 
 <%= turbo_frame_tag "cart" do %>
-    <h1>CART</h1>
+    <div class="card">
+    <h1 class="card-header">CART</h1>
     <% if @cart.orderables.count > 0 %>
-        <%= render "cart/orderables" %>
-        <p>Total:<%= @cart.total %></p>
+        <div class="card-body"><%= render "cart/orderables" %></div>
+        <div class="card-footer"><strong>Total:<%= @cart.total %></strong></div>
     <% else %>
         <p> Your Cart is Empty </p>
     <% end %>

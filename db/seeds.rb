@@ -10,6 +10,14 @@
 
 Category.create!(heading: 'Blah', body: "Test", display:true)
 
+User.new(
+	:email 								 => "admin@example.com",
+	:username 						 => "admin",
+	:admin 								 => true,
+	:password 						 => "admin@123",
+	:password_confirmation => "admin@123"
+).save!
+
 5.times do |i|
 	pro = Product.new(
 				name: "Product",

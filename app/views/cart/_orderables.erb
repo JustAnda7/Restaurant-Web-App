@@ -1,20 +1,32 @@
 
-
+<div class="col">
 <% @cart.orderables.each do |orderable|%>
+<div class="row">
 	<% product = orderable.product%>
-	<div id = <%= "cart-#{product.id}" %>>
+	<div id = <%= "cart-#{product.id}" %> class="col card">
+		<div class="card-header">
+			<% if product.image.attached? %>
+				<%= image_tag(product.image, class:'img-fluid') %>
+			<% end %>
+		</div>
+		<div class="row">
 		<h3><%= product.name %></h3>
 		<h3><%= product.price %></h3>
+		</div>
+		<div class="row">
 		<%= form_with(url: cart_add_path) do |f| %>
-			<%= f.hidden_field :id, value: product.id %>
-			<%= f.number_field :quantity, value: orderable.quantity, min: 0 %>
-			<%= f.submit "Add to Cart" %>
+			<%= f.hidden_field :id, value: product.id, class:"col-sm-1" %>
+			<%= f.number_field :quantity, value: orderable.quantity, min: 0, class:"col-sm-4" %>
+			<%= f.submit "Add", class:"btn btn-primary btn-sm" %>
 		<% end %>
 		<%= form_with(url: cart_remove_path) do |f| %>
-			<%= f.hidden_field :id, value: orderable.id %>
-			<%= f.submit "Remove" %>
+			<%= f.hidden_field :id, value: orderable.id, class:"col-sm-1" %>
+			<%= f.submit "Remove", class:"btn btn-danger btn-sm" %>
 		<% end %>
+		<div>
 		<strong>Total</strong>
 		<%= orderable.total %>
 	</div>
+</div>
 <% end %>
+</div>

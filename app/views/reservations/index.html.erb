@@ -2,13 +2,16 @@
 
 <h1>Reservations</h1>
 
-<div id="reservations">
+<div id="reservations" class="row row-cols-auto justify-contents-evenly">
   <% @reservations.each do |reservation| %>
-    <%= render reservation %>
-    <p>
-      <%= link_to "Show this reservation", reservation %>
-    </p>
+    <div class="col-auto justify-contents-evenly">
+      </br>
+      <%= render reservation %>
+      <p>
+        <%= link_to "Show", reservation,  class:"btn btn-primary btn-sm" %>
+      </p>
+    </div>
   <% end %>
 </div>
 
-<%= link_to "New reservation", new_reservation_path %>
+<%= link_to "New reservation", new_reservation_path, class:"btn btn-primary btn-sm" %>
