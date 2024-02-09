@@ -1,24 +1,20 @@
-# README
+# Web Application For Restaurants
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Features
 
-Things you may want to cover:
+### Users
 
-* Ruby version
+ -  Make Reservations with the Restaurant.
+ -  Browse the Restaurant's Menu for the delicacy.
+ -  Add the items to the User's Cart for Online Ordering.
 
-* System dependencies
+### Restaurant
 
-* Configuration
+ - Allow the Restaurant to manage their Menu.
+ - Allow the Admins to regulate the Web Application.
 
-* Database creation
+## Installation
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+ - Clone the repository using `git clone`.
+ - `cd` into the application directory.
+ - Run `rails s` to start the server and open the link to access the application.
